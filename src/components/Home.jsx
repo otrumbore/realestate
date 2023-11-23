@@ -8,6 +8,7 @@ const Home = () => {
 
   // Fetch the access token on component mount
   useEffect(() => {
+
     const fetchToken = async () => {
         try {
           const token = await fetchAPIAccessToken();

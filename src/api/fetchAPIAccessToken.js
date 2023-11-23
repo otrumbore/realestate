@@ -1,13 +1,19 @@
 import axios from "axios";
 
 const fetchAPIAccessToken = async () => {
+
+  //console.log(import.meta.env);
+  const apiKey = import.meta.env.VITE_RAPID_API_KEY;
+  //console.log(apiKey);
+
+
   const encodedParams = new URLSearchParams();
   encodedParams.set('grant_type', 'client_credentials');
   encodedParams.set('app_client_id', '118po0r6i1o1ccsu6ee4cl132u');
 
   const headers = {
     'content-type': 'application/x-www-form-urlencoded',
-    'X-RapidAPI-Key': 'bed02c67e9msh9e1af9591bc15e8p15b94bjsn8f8782a7d181',
+    'X-RapidAPI-Key': apiKey,
     'X-RapidAPI-Host': 'mls-router1.p.rapidapi.com'
   };
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const fetchAPIListings = async (accessToken) => {
+
     if (!accessToken) throw error;
   const options = {
     method: 'GET',
