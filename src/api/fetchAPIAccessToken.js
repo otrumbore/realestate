@@ -2,7 +2,6 @@ import axios from "axios";
 
 const fetchAPIAccessToken = async () => {
 
-  //console.log(import.meta.env);
   const apiKey = import.meta.env.VITE_RAPID_API_KEY;
   //console.log(apiKey);
 
@@ -25,7 +24,8 @@ const fetchAPIAccessToken = async () => {
     );
 
     const accToken = response.data.access_token;
-    return accToken;
+    //console.log(accToken);
+    return {accToken};
   } catch (error) {
     console.error(error);
     throw error; // Re-throw the error to handle it in the component

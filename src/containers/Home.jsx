@@ -14,7 +14,7 @@ const Home = () => {
           const token = await fetchAPIAccessToken();
           //console.log('Token:', token); // Log the entire token object
           if (token) {
-            setAccessToken(token);
+            setAccessToken(token.accToken);
             //console.log('Access Token:', token.accToken);
           } else {
             console.error('Token or Access Token not available.');
@@ -34,7 +34,7 @@ const Home = () => {
             //console.log('Token:', token); // Log the entire token object
             if (listings) {
               setApiData(listings);
-              //console.log('Access Token:', token.accToken);
+              //console.log('Listings:', listings);
             } else {
               console.error('Token or Access Token not available.');
             }
