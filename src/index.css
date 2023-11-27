@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 :root {
-  @apply bg-gray-600 text-gray-300;
+	@apply bg-base-300 text-gray-700;
 }
