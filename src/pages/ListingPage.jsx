@@ -70,36 +70,49 @@ const ListingPage = () => {
 							alt={`Photo ${currentImageIndex + 1}`}
 							className='w-full h-96 object-cover rounded-lg'
 						/>
-						<button
-							className={`btn btn-primary absolute top-1/2 left-4 font-bold px-3 py-1 rounded-md bg-opacity-70 ${
-								currentImageIndex < 1 ? 'btn-disabled' : ''
-							}`}
-							onClick={prevImage}
-						>
-							<FaAngleLeft size={40} />
-						</button>
-						<button
-							className='btn btn-primary absolute top-1/2 right-4 font-bold px-3 py-1 rounded-md bg-opacity-70'
-							onClick={nextImage}
-						>
-							<FaAngleRight size={40} />
-						</button>
+						{listingDetails.Media.length > 1 ? (
+							<div>
+								<button
+									className={`btn btn-primary absolute top-1/2 left-4 font-bold px-3 py-1 rounded-md bg-opacity-70 ${
+										currentImageIndex < 1 ? 'btn-disabled' : ''
+									}`}
+									onClick={prevImage}
+								>
+									<FaAngleLeft size={40} />
+								</button>
+								<button
+									className='btn btn-primary absolute top-1/2 right-4 font-bold px-3 py-1 rounded-md bg-opacity-70'
+									onClick={nextImage}
+								>
+									<FaAngleRight size={40} />
+								</button>
+							</div>
+						) : (
+							''
+						)}
 					</div>
 					<div className='grid grid-cols-2 gap-8'>
 						<div className='col-span-2'>
 							<h2 className='text-3xl font-bold mb-4'>
 								{listingDetails.UnparsedAddress}
 							</h2>
-							<p className='text-gray-600 mb-6'>
-								{listingDetails.PublicRemarks}
-							</p>
-							<div className='grid grid-cols-2 gap-4'>
+							<div className='grid grid-cols-2 gap-4 mb-6'>
 								<div className='col-span-1'>
 									<p className='font-bold'>
 										Price: ${listingDetails.ListPrice}
 									</p>
-									<p>Beds: {listingDetails.BedroomsTotal}</p>
-									<p>Baths: {listingDetails.BathroomsTotalInteger}</p>
+									<p>
+										Beds:{' '}
+										{listingDetails.BedroomsTotal
+											? listingDetails.BedroomsTotal
+											: 'N/A'}
+									</p>
+									<p>
+										Baths:{' '}
+										{listingDetails.BathroomsTotalInteger
+											? listingDetails.BathroomsTotalInteger
+											: 'N/A'}
+									</p>
 									<p>Living Area: {listingDetails.LivingArea} sqft</p>
 									{/* Add other details here */}
 								</div>
@@ -109,6 +122,7 @@ const ListingPage = () => {
 									{/* Add other details here */}
 								</div>
 							</div>
+							<p className='text-gray-600'>{listingDetails.PublicRemarks}</p>
 						</div>
 					</div>
 				</div>
